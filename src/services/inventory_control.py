@@ -26,7 +26,8 @@ class InventoryMapping:
 
     def check_recipe_availability(self, recipe: Recipe) -> bool:
         for ingredient, amount in recipe.items():
-            if self.inventory[ingredient] < amount:
+            current_stock = self.inventory.get(ingredient, 0)
+            if current_stock < amount:
                 return False
         return True
 
