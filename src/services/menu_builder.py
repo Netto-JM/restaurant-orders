@@ -41,8 +41,8 @@ class MenuBuilder:
     def get_main_menu(self, restriction: Optional[str] = None) -> List[Dict]:
         if not restriction:
             return self.make_menu()
-        return list(
+        return [
             item
             for item in self.make_menu()
             if restriction not in item["restrictions"]
-        )
+        ]
