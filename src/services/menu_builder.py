@@ -27,14 +27,15 @@ class MenuBuilder:
     def make_menu(self) -> List[Dict]:
         menu = []
         for dish in self.menu_data.dishes:
-            menu.append(
-                {
-                    "dish_name": dish.name,
-                    "ingredients": dish.get_ingredients(),
-                    "price": dish.price,
-                    "restrictions": dish.get_restrictions(),
-                }
-            )
+            if self.inventory.check_recipe_availability(dish.recipe):
+                menu.append(
+                    {
+                        "dish_name": dish.name,
+                        "ingredients": dish.get_ingredients(),
+                        "price": dish.price,
+                        "restrictions": dish.get_restrictions(),
+                    }
+                )
 
         return menu
 
