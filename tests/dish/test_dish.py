@@ -3,7 +3,6 @@ from src.models.ingredient import Ingredient, Restriction
 import pytest
 
 
-# Req 2
 def test_dish():
     lasagna = Dish("lasanha", 33.25)
     pizza = Dish("pizza", 22.50)
